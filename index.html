@@ -1,64 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Projet Naturopathe - [Ton Nom]</title>
-    
-</head>
-<body>
-
-<header>
-    <nav class="conteneur">
-        <strong>NATURO-VIVE</strong>
-        <ul>
-            <li>Accueil</li>
-            <li>Prestations</li>
-            <li>Qui suis-je ?</li>
-            <li>Contact</li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nature & Équilibre | Naturopathe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="conteneur">
+        <div class="logo"><strong>NATUR</strong>OPATHE</div>
+        <ul class="nav-liste">
+          <li><a href="#accueil" class="actif">Accueil</a></li>
+          <li><a href="#prestations">Prestations</a></li>
+          <li><a href="#quisuisje">Qui suis-je ?</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<main class="conteneur">
-
-    <section class="flex">
-        <div class="demi">
-            <h1>L'équilibre au naturel</h1>
-            <p>Bienvenue sur mon futur site vitrine. Je vous accompagne pour retrouver votre vitalité via des méthodes douces.</p>
-            <button>Prendre rendez-vous</button>
+    <main>
+      <section id="accueil" class="hero conteneur">
+        <div class="hero-texte">
+          <h1>L'ÉQUILIBRE AU NATUREL</h1>
+          <p>
+            Retrouvez votre vitalité grâce à un accompagnement personnalisé et
+            des solutions naturelles adaptées à votre rythme de vie.
+          </p>
+          <a href="#contact" class="btn-vert">PRENDRE RENDEZ-VOUS</a>
         </div>
-        <div class="demi">
-            [Image Hero - Forêt]
+        <div class="hero-image">
+          <img src="./asset/personne.jpg" alt="Portrait Naturopathe" />
         </div>
-    </section>
+      </section>
 
-    <section>
-        <h2>Nos Prestations</h2>
-        <div class="grille-services">
-            <div class="carte">
-                <h3>Bilan de vitalité</h3>
-                <p>Analyse complète.</p>
-            </div>
-            <div class="carte">
-                <h3>Suivi</h3>
-                <p>Accompagnement mensuel.</p>
-            </div>
-            <div class="carte">
-                <h3>Réflexologie</h3>
-                <p>Détente plantaire.</p>
-            </div>
+      <section id="prestations" class="services conteneur">
+        <h2 class="titre-section">NOS PRESTATIONS</h2>
+        <div class="services-grille">
+          <div class="card">
+            <div class="card-image"></div>
+            <h3>Bilan de vitalité</h3>
+            <p>
+              Une analyse complète pour définir votre programme d'hygiène de
+              vie.
+            </p>
+            <a href="#contact" class="btn-bordure">S'INFORMER</a>
+          </div>
+
+          <div class="card">
+            <div class="card-image"></div>
+            <h3>Suivi personnalisé</h3>
+            <p>
+              Un accompagnement régulier pour stabiliser vos résultats sur le
+              long terme.
+            </p>
+            <a href="#contact" class="btn-bordure">S'INFORMER</a>
+          </div>
+
+          <div class="card">
+            <div class="card-image"></div>
+            <h3>Réflexologie</h3>
+            <p>
+              Techniques de pression pour libérer les tensions et réduire le
+              stress.
+            </p>
+            <a href="#contact" class="btn-bordure">S'INFORMER</a>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section>
-        <h2>Contact & Accès</h2>
-        <div class="flex">
-            <div class="demi">
-                <form>
-                    <input type="text" placeholder="Nom">
-                    <input type="email" placeholder="Email">
-                    <input type="message" placeholder="Votre message">
-                    <button type="button">Envoyer</button>
-                </form>
-            </div>
-            <div class="demi" style
+      <section id="quisuisje" class="about conteneur">
+        <h2 class="titre-section">QUI SUIS-JE ?</h2>
+        <div class="about-contenu">
+          <h3>Christine B - Naturopathe</h3>
+          <p>
+            Après plusieurs années dans le commerce, puis dans l'accompagnement
+            et la formation pour adultes, j'ai toujours eu à cœur d'aider les
+            personnes à trouver leur équilibre et à avancer dans leur vie. Au
+            moment de la retraite, j'ai choisi de me reconvertir dans un domaine
+            qui me passionne profondément : la naturopathie. Cette discipline me
+            permet aujourd'hui d'accompagner chacun vers un mieux-être global,
+            en prenant en compte la personne dans sa globalité. J'ai ouvert mon
+            cabinet afin de proposer un accompagnement bienveillant et
+            personnalisé, dans un cadre d'écoute et de confiance, pour vous
+            aider à retrouver équilibre, vitalité et harmonie au quotidien.
+          </p>
+          <a href="#contact" class="btn-bordure">ME CONTACTER</a>
+        </div>
+      </section>
+
+      <section id="contact" class="contact conteneur">
+        <h2 class="titre-section">CONTACT & ACCÈS</h2>
+        <div class="contact-grille">
+          <form id="form-contact">
+            <input type="text" id="nom" placeholder="Votre Nom" required />
+            <input type="email" id="email" placeholder="Votre Email" required />
+            <textarea
+              id="message"
+              placeholder="Votre Message"
+              rows="5"
+              required
+            ></textarea>
+            <button type="submit" class="btn-vert">ENVOYER</button>
+            <div id="message-retour"></div>
+          </form>
+
+          <div class="carte-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.5173733075216!2d7.713977976865261!3d48.55564757129188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c92d8d48c5cb%3A0x598bdd10e55772c6!2s15%20Rue%20Pasteur%2C%2067540%20Ostwald!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr"
+              width="100%"
+              height="100%"
+              style="border: 0; border-radius: 15px"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="conteneur footer-grille">
+        <div class="footer-col">
+          <h4>LIENS RAPIDES</h4>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#prestations">Prestations</a></li>
+            <li><a href="#quisuisje">Qui suis-je ?</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>COORDONNÉES</h4>
+          <p>15 Rue Pasteur</p>
+          <p>67540 Ostwald</p>
+          <p>christineB@naturopathe.fr</p>
+        </div>
+        <div class="footer-col">
+          <h4>RÉSEAUX SOCIAUX</h4>
+          <div class="reseaux">
+            <a href="#" class="icone-rond">f</a>
+            <a href="#" class="icone-rond">i</a>
+            <a href="#" class="icone-rond">t</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bas">
+        <p>© 2026 Nature & Équilibre - Projet BTS SIO</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
