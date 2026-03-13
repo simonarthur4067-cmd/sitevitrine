@@ -1,4 +1,4 @@
-/* reset de base */
+/* Reset de base : supprime les marges et padding par défaut du navigateur */
 * {
   margin: 0;
   padding: 0;
@@ -15,18 +15,19 @@ body {
   background-position: center;
 }
 
+/* Conteneur centré utilisé sur toutes les sections pour limiter la largeur du contenu */
 .conteneur {
   width: 90%;
   max-width: 1150px;
   margin: 0 auto;
 }
 
-/* navigation */
+/* Navigation */
 header {
   background: #ffffff;
   padding: 20px 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  position: sticky;
+  position: sticky; /* La nav reste visible en scrollant */
   top: 0;
 }
 
@@ -49,17 +50,18 @@ nav {
   transition: 0.3s;
 }
 
+/* Lien actif mis en vert (géré aussi dynamiquement dans script.js) */
 .nav-liste a:hover,
 .nav-liste a.actif {
   color: #4a6741;
 }
 
-/* sections */
+/* Espacement uniforme pour toutes les sections */
 section {
   padding: 100px 0;
 }
 
-/* hero */
+/* Hero : disposition en 2 colonnes (texte à gauche, image à droite) */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -81,7 +83,7 @@ section {
   object-fit: cover;
 }
 
-/* boutons */
+/* Bouton principal vert */
 .btn-vert {
   background: #4a6741;
   color: #ffffff;
@@ -99,6 +101,7 @@ section {
   background: #8ba888;
 }
 
+/* Bouton secondaire avec bordure verte */
 .btn-bordure {
   border: 1px solid #4a6741;
   color: #4a6741;
@@ -116,7 +119,7 @@ section {
   color: white;
 }
 
-/* services */
+/* Titre de chaque section */
 .titre-section {
   margin-bottom: 32px;
   font-size: 29px;
@@ -124,6 +127,7 @@ section {
   text-align: center;
 }
 
+/* Grille pour la première ligne de prestations (3 colonnes) */
 .services-grille {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -131,6 +135,15 @@ section {
   padding: 40px 0;
 }
 
+/* Grille pour la deuxième ligne de prestations (2 colonnes centrées) */
+.cinquante {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding: 40px 0;
+}
+
+/* Carte de prestation */
 .card {
   background: #ffffff;
   padding: 40px;
@@ -144,21 +157,15 @@ section {
   transform: translateY(-5px);
 }
 
-.cinquante {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  padding: 40px 0;
-}
-
+/* Image dans chaque carte */
 .card-image img {
   width: 80px;
   height: auto;
-  margin: 0 auto; /* Centre l'image horizontalement */
+  margin: 0 auto;
   padding-top: 20px;
 }
 
-/* about */
+/* Section qui suis-je */
 .about-contenu {
   background: #ffffff;
   padding: 60px;
@@ -180,7 +187,7 @@ section {
   color: #555;
 }
 
-/* contact */
+/* Contact : formulaire à gauche, carte à droite */
 .contact-grille {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -213,13 +220,14 @@ textarea {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* footer */
+/* Footer */
 footer {
   background: #ffffff;
   border-top: 1px solid #eee;
   padding: 60px 0 20px;
 }
 
+/* 3 colonnes dans le footer */
 .footer-grille {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -243,6 +251,7 @@ footer {
   font-size: 14px;
 }
 
+/* Icônes réseaux sociaux */
 .reseaux {
   display: flex;
   gap: 10px;
@@ -269,8 +278,38 @@ footer {
   font-size: 13px;
 }
 
-/* responsive mobile */
-@media (max-width: 850px) {
+/* Mentions légales */
+.mentions {
+  padding: 80px 0;
+}
+
+.mentions-contenu {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mention-bloc {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.mention-bloc h2 {
+  color: #4a6741;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.mention-bloc p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+/* Responsive tablette (moins de 1024px) : tout passe en 1 colonne */
+@media (max-width: 1024px) {
   .hero,
   .contact-grille,
   .footer-grille {
@@ -284,5 +323,43 @@ footer {
 
   .hero-texte h1 {
     font-size: 32px;
+  }
+
+  /* Les prestations passent en 1 colonne */
+  .services-grille,
+  .cinquante {
+    grid-template-columns: 1fr;
+  }
+
+  .about-contenu {
+    padding: 30px;
+  }
+
+  .carte-map {
+    min-height: 250px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  /* Navigation en colonne avec liens centrés */
+  nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-liste {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-grille {
+    gap: 24px;
   }
 }

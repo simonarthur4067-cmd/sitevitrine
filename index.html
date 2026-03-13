@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Barre de navigation fixe en haut de page -->
     <header>
       <nav class="conteneur">
         <div class="logo"><strong>NATUR</strong>OPATHE</div>
@@ -20,6 +21,7 @@
     </header>
 
     <main>
+      <!-- Section d'accueil : titre, description et bouton de prise de rendez-vous -->
       <section id="accueil" class="hero conteneur">
         <div class="hero-texte">
           <h1>L'ÉQUILIBRE AU NATUREL</h1>
@@ -34,8 +36,11 @@
         </div>
       </section>
 
+      <!-- Section prestations : 3 cartes sur la première ligne, 2 centrées en dessous -->
       <section id="prestations" class="services conteneur">
         <h2 class="titre-section">NOS PRESTATIONS</h2>
+
+        <!-- Première ligne : 3 cartes -->
         <div class="services-grille">
           <div class="card">
             <div class="card-image">
@@ -73,6 +78,8 @@
             <a href="#contact" class="btn-bordure">S'INFORMER</a>
           </div>
         </div>
+
+        <!-- Deuxième ligne : 2 cartes centrées (classe "cinquante" = grille 2 colonnes) -->
         <div class="cinquante">
           <div class="card">
             <div class="card-image">
@@ -100,6 +107,7 @@
         </div>
       </section>
 
+      <!-- Section présentation de Christine -->
       <section id="quisuisje" class="about conteneur">
         <h2 class="titre-section">QUI SUIS-JE ?</h2>
         <div class="about-contenu">
@@ -120,9 +128,11 @@
         </div>
       </section>
 
+      <!-- Section contact : formulaire à gauche, carte Google Maps à droite -->
       <section id="contact" class="contact conteneur">
         <h2 class="titre-section">CONTACT & ACCÈS</h2>
         <div class="contact-grille">
+          <!-- Formulaire : la validation et le message de confirmation sont gérés dans script.js -->
           <form id="form-contact">
             <input type="text" id="nom" placeholder="Votre Nom" required />
             <input type="email" id="email" placeholder="Votre Email" required />
@@ -133,9 +143,11 @@
               required
             ></textarea>
             <button type="submit" class="btn-vert">ENVOYER</button>
+            <!-- Message de confirmation affiché après envoi -->
             <div id="message-retour"></div>
           </form>
 
+          <!-- Carte Google Maps intégrée (adresse : 15 Rue Pasteur, 67540 Ostwald) -->
           <div class="carte-map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.5173733075216!2d7.713977976865261!3d48.55564757129188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c92d8d48c5cb%3A0x598bdd10e55772c6!2s15%20Rue%20Pasteur%2C%2067540%20Ostwald!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr"
@@ -150,6 +162,8 @@
       </section>
     </main>
 
+    <!-- Pied de page : liens rapides, coordonnées, réseaux sociaux -->
+    <!-- L'année dans le copyright est mise à jour automatiquement via script.js -->
     <footer>
       <div class="conteneur footer-grille">
         <div class="footer-col">
@@ -158,6 +172,7 @@
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#prestations">Prestations</a></li>
             <li><a href="#quisuisje">Qui suis-je ?</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
           </ul>
         </div>
         <div class="footer-col">
