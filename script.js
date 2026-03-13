@@ -19,6 +19,7 @@ function nouvelleQuestion() {
 document
   .getElementById("form-contact")
   .addEventListener("submit", function (e) {
+    // On bloque toujours le rechargement de page
     e.preventDefault();
 
     var retour = document.getElementById("message-retour");
@@ -42,15 +43,25 @@ document
       return;
     }
 
-    // Tout est bon
-    retour.textContent = "Votre message a bien été envoyé !";
-    retour.className = "succes";
+    // Tout est bon : envoi en arrière-plan via fetch (pas de rechargement de page)
+    fetch("envoyer.php", {
+      method: "POST",
+      body: new FormData(document.getElementById("form-contact")),
+    })
+      .then(function () {
+        retour.textContent = "Votre message a bien été envoyé !";
+        retour.className = "succes";
 
-    document.getElementById("nom").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("message").value = "";
-    document.getElementById("rgpd").checked = false;
-    nouvelleQuestion();
+        document.getElementById("nom").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        document.getElementById("rgpd").checked = false;
+        nouvelleQuestion();
+      })
+      .catch(function () {
+        retour.textContent = "Une erreur est survenue, veuillez réessayer.";
+        retour.className = "erreur";
+      });
   });
 
 // ── ANNÉE AUTOMATIQUE ────────────────────────────────────────────────────
