@@ -142,6 +142,23 @@
               rows="5"
               required
             ></textarea>
+            <!-- Case à cocher RGPD obligatoire -->
+            <label class="label-checkbox">
+              <input type="checkbox" id="rgpd" required />
+              J'accepte que mes données soient conservées le temps du traitement
+              de ma demande.
+            </label>
+
+            <!-- Anti-spam : la question est mise à jour dynamiquement par script.js -->
+            <div class="anti-spam">
+              <label id="anti-spam-label">Chargement...</label>
+              <input
+                type="text"
+                id="anti-spam-reponse"
+                placeholder="Votre réponse"
+                autocomplete="off"
+              />
+            </div>
             <button type="submit" class="btn-vert">ENVOYER</button>
             <!-- Message de confirmation affiché après envoi -->
             <div id="message-retour"></div>
@@ -151,9 +168,6 @@
           <div class="carte-map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.5173733075216!2d7.713977976865261!3d48.55564757129188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c92d8d48c5cb%3A0x598bdd10e55772c6!2s15%20Rue%20Pasteur%2C%2067540%20Ostwald!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr"
-              width="100%"
-              height="100%"
-              style="border: 0; border-radius: 15px"
               allowfullscreen=""
               loading="lazy"
             ></iframe>

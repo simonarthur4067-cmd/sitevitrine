@@ -1,26 +1,63 @@
-// Gestion du formulaire de contact
-// Quand l'utilisateur clique sur "Envoyer", on empêche le rechargement de la page
-// puis on affiche un message de confirmation et on vide les champs
+// ── ANTI-SPAM ────────────────────────────────────────────────────────────
+var nb1 = Math.floor(Math.random() * 9) + 1;
+var nb2 = Math.floor(Math.random() * 9) + 1;
+var bonneReponse = nb1 + nb2;
+
+document.getElementById("anti-spam-label").textContent =
+  "Vérification anti-spam : combien font " + nb1 + " + " + nb2 + " ?";
+
+function nouvelleQuestion() {
+  nb1 = Math.floor(Math.random() * 9) + 1;
+  nb2 = Math.floor(Math.random() * 9) + 1;
+  bonneReponse = nb1 + nb2;
+  document.getElementById("anti-spam-label").textContent =
+    "Vérification anti-spam : combien font " + nb1 + " + " + nb2 + " ?";
+  document.getElementById("anti-spam-reponse").value = "";
+}
+
+// ── FORMULAIRE ───────────────────────────────────────────────────────────
 document
   .getElementById("form-contact")
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    document.getElementById("message-retour").textContent =
-      "Votre message a bien été envoyé !";
+    var retour = document.getElementById("message-retour");
+    var email = document.getElementById("email").value;
+    var reponse = parseInt(document.getElementById("anti-spam-reponse").value);
+
+    // Vérification format email : doit contenir @ et un point après (x@x.x)
+    var formatEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formatEmail.test(email)) {
+      retour.textContent =
+        "Veuillez entrer une adresse email valide (ex : nom@domaine.fr).";
+      retour.className = "erreur";
+      return;
+    }
+
+    // Vérification anti-spam
+    if (reponse !== bonneReponse) {
+      retour.textContent = "Réponse anti-spam incorrecte, veuillez réessayer.";
+      retour.className = "erreur";
+      nouvelleQuestion();
+      return;
+    }
+
+    // Tout est bon
+    retour.textContent = "Votre message a bien été envoyé !";
+    retour.className = "succes";
 
     document.getElementById("nom").value = "";
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
+    document.getElementById("rgpd").checked = false;
+    nouvelleQuestion();
   });
 
-// Année automatique dans le footer
-// Remplace le texte statique par l'année en cours pour ne pas avoir à le changer manuellement
+// ── ANNÉE AUTOMATIQUE ────────────────────────────────────────────────────
 document.querySelector(".footer-bas p").textContent =
   "© " + new Date().getFullYear() + " Nature & Équilibre - Projet BTS SIO";
 
-// Lien actif dans la navigation
-// À chaque scroll, on détecte quelle section est visible et on met le lien correspondant en vert
+// ── LIEN ACTIF DANS LA NAVIGATION ───────────────────────────────────────
 window.addEventListener("scroll", function () {
   var sections = document.querySelectorAll("section");
   var liens = document.querySelectorAll(".nav-liste a");
